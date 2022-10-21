@@ -1,0 +1,105 @@
+html {
+    background-color: grey;
+}
+.cadre {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+h1, h2, h3, h4, h5, button {
+    font-family: "Arial";
+    text-transform: uppercase;
+}
+.interface {
+    background-color: lightblue;
+    margin: 10px 0px;
+    width: 75%;
+}
+.interface .bouton-partie {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.interface button {
+    cursor: pointer;
+    padding: 8px;
+    background: transparent;
+    border: none;
+    margin-top: 10px;
+    font: bold 16px 'Arial'
+}
+.interface button i {
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 3px;
+    margin-right: 5px;
+}
+.grid > * {
+    padding: 10px 0;
+}
+.grille {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: 30% 5% auto 5% 30%;
+}
+.grille h2 {
+    font-size: 21pt;
+}
+.grille h1 {
+    font-size: 30pt;
+}
+#canvas-de {
+    width: 102px;
+    height: 102px;
+    background-color: lightcyan;
+}
+.score-actuel {
+    background-color: lightcoral;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 30px;
+}
+.score-actuel h5 {
+    margin: 15px 0 20px 0;
+}
+.score-actuel h3 {
+    margin: 0 0 10px 0;
+    color: white;
+    font-size: xx-large;
+    word-break: break-all;
+}
+.boutons-joueurs {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+#score-de {
+    background-color: lightcyan;
+}
+.jeu {
+    margin-top: 10px;
+    display: grid;
+    justify-items: center;
+}
+.boutons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.cacher {
+    visibility: hidden;
+}
+.griser {
+    opacity: 0.3 !important;
+}
+.transparent {
+    background: transparent;
+}

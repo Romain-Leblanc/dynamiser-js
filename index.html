@@ -1,0 +1,58 @@
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>Jeu de dés</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Jeu de dés">
+        <link rel="stylesheet" href="fontawesome-6.2.0/css/all.min.css">
+        <link rel="stylesheet" href="style.css">
+        <script type="application/javascript" src="jquery/jquery-3.6.1.min.js"></script>
+    </head>
+    <body>
+        <div class="cadre">
+            <div class="interface">
+                <div class="bouton-partie">
+                    <button type="button" id="nouvelle-partie"><i class="fa-solid fa-plus"></i> New game</button>
+                </div>
+                <div class="grid griser" id="grid">
+                    <div class="grille" id="titre-joueurs">
+                            <h2>Player 1</h2>
+                            <canvas class="cacher" id="canvas-tour-joueur-1" width="18px" height="18px"></canvas>
+                            <div class="cacher"></div>
+                            <canvas class="cacher" id="canvas-tour-joueur-2" width="18px" height="18px"></canvas>
+                            <h2>Player 2</h2>
+                    </div>
+                    <div class="grille" id="score">                    
+                        <h1 id="score-total-joueur-1">0</h1>
+                        <div class="cacher"></div>
+                        <canvas id="canvas-de" width="102px" height="102px"></canvas>
+                        <div class="cacher"></div>
+                        <h1 id="score-total-joueur-2">0</h1>
+                    </div>
+                    <div class="grille" id="jeu">
+                        <div class="score-actuel">
+                            <h5>Current</h5>
+                            <h3 id="score-actuel-joueur-1">0</h3>
+                        </div>
+                        <div class="cacher"></div>
+                        <div class="boutons-joueurs">
+                            <div class="boutons" id="bouton-lancer">
+                                <img id="lancer" src="img/lancer.png" width="35px" height="35px" alt="Lancé le dé" titre="Lancé le dé" />
+                                <h4>Roll dice</h4>
+                            </div>
+                            <div class="boutons" id="bouton-retenir">
+                                <img id="retenir" src="img/retenir.png" width="25px" height="25px" alt="Retenir" titre="Retenir le score du dé" />
+                                <h4>Hold</h4>
+                            </div>
+                        </div>
+                        <div class="cacher"></div>
+                        <div class="score-actuel">
+                            <h5>Current</h5>
+                            <h3 id="score-actuel-joueur-2">0</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
