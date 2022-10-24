@@ -44,5 +44,57 @@ function nouvellePartie() {
 
 // Lance le dé
 function lancer() {
-    console.log('essai appel lancé');
+    resetCanvas();
+
+    scoreActuelJoueurEncours = $(`#score-actuel-joueur-${numeroJoueurActuel}`);
+
+    if(trimValue(scoreActuelJoueurEncours.text()) == 0) {
+        divBoutonRetenir.attr('onclick', 'retenir()');
+    }
+
+    let nbChoisi = random(nbChoixPossible);
+
+    callCanvasFunction(nbChoisi);
+
+    // Si le numéro choisi est égale à 1
+    if(nbChoisi == 1) {
+
+        scoreActuelJoueurEncours.text(0);
+
+        alert("Vous avez tiré le dé numéro 1 !\nVotre score actuel est effacé et c'est au joueur suivant de jouer.");
+
+        // nextPlayer();
+    }
+    else { // Sinon on actualise le score "ROUND" du joueur actuel
+        scoreActuelJoueurEncours.text(parseInt(trimValue(scoreActuelJoueurEncours.text()))+parseInt(+nbChoisi));
+    }
+}
+
+// Génère un canvas (pour le dé) suivant la valeur du paramètre
+function callCanvasFunction(number) {
+    // Convertit la valeur passée en paramètre en valeur entière
+    number = parseInt(number);
+    
+    switch (number) {
+        case 1:
+            un();
+            break;
+        case 2:
+            deux();
+            break;
+        case 3:
+            trois();
+            break;
+        case 4:
+            quatre();
+            break;
+        case 5:
+            cinq();
+            break;
+        case 6:
+            six();
+            break;    
+        default:
+            break;
+    }
 }
