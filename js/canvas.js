@@ -22,9 +22,9 @@ let angleStart = 0;
 let angleEnd = Math.PI * 2;
 
 // Initialise la couleur du carré
-ctx.strokeStyle = "transparent";
+ctx.strokeStyle = transparent;
 // Initialise la couleur des contours du cercle
-ctx.fillStyle = "red";
+ctx.fillStyle = red;
 
 /**
  * Génère un carré pour l'affichage des dés
@@ -40,6 +40,19 @@ ctx.fillStyle = "red";
     ctx.arc(x, y, rayon, angleStart, angleEnd);
     ctx.stroke();
     ctx.fill();
+}
+
+// Génère un point rouge qui permet de préciser quel joueur joue le tour actuel
+function pointRouge(numeroJoueur) {
+    let canvasPointRougeDom = document.getElementById(`canvas-tour-joueur-${numeroJoueur}`);
+    let cpr = canvasPointRougeDom.getContext("2d");
+    cpr.beginPath();
+    cpr.arc(9, 9, 8, angleStart, angleEnd);
+    cpr.fillStyle = red;
+    cpr.fill();
+    cpr.strokeStyle = red;
+    cpr.stroke();
+    cpr.closePath();
 }
 
 // Génère le dé n°1
@@ -118,4 +131,9 @@ function six() {
     ctx.beginPath();
     genererArc(75, 75, 10, angleStart, angleEnd);
     ctx.closePath();
+}
+
+// Efface la forme actuelle du canvas de dé
+function resetCanvas() {
+    ctx.clearRect(xStart, yStart, width, height);
 }
