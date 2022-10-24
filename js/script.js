@@ -70,11 +70,68 @@ function lancer() {
     }
 }
 
+// Ajoute la valeur du dé au "GLOBAL" et si le joueur actuel a remporté la partie, affiche un message puis réinitialise l'interface
+function retenir() {
+    // Récupère l'élément du DOM du joueur en cours de jeu puis met à jour son score
+    scoreTotalJoueurEncours = $(`#score-total-joueur-${numeroJoueurActuel}`);    
+    scoreTotalJoueurEncours.text(parseInt(scoreTotalJoueurEncours.text())+parseInt(trimValue(scoreActuelJoueurEncours.text())));
+
+    // Si ce score est supérieur ou égale à 100, on exécute le code suivant
+    if(parseInt(scoreTotalJoueurEncours.text()) >= nombrePointsGagnants) {
+        // On affiche un message de victoire avec son nombre de points "GLOBAL"
+        alert(`Le joueur ${numeroJoueurActuel} a gagné la partie avec ${parseInt(scoreTotalJoueurEncours.text())} points !`);
+        // Recharge la page afin de réinitialiser la grille et le jeu
+        document.location.reload();
+    }
+    else { // Sinon on passe au tour suivant
+        nextPlayer();
+    }
+}
+
+// Le tour actuel passe au joueur suivant
+function nextPlayer() {
+    // Si le joueur actuel est le joueur n° 1
+    if(numeroJoueurActuel == 1) {
+        // On cache l'image du point rouge du joueur n°1 étant donné qu'il vient de jouer puis l'affiche au joueur n°2
+        canvasTourJoueurUn.addClass("cacher");
+        canvasTourJoueurDeux.removeClass("cacher");
+        // On réinitialise le score "ROUND" du joueur n°1 à zéro.
+        scoreActuelJoueurEncours.text(0);
+        // Définit le tour actuel au joueur suivant
+        numeroJoueurActuel = 2;
+    }
+    else {
+        // On cache l'image du point rouge du joueur n°2 étant donné qu'il vient de jouer puis l'affiche au joueur n°1
+        canvasTourJoueurUn.removeClass("cacher");
+        canvasTourJoueurDeux.addClass("cacher");
+        // On réinitialise le score "ROUND" du joueur n°2 à zéro.
+        scoreActuelJoueurEncours.text(0);
+        // Définit le tour actuel au joueur suivant
+        numeroJoueurActuel = 1;
+    }
+    // Réinitialise le contenu du canvas puisque c'est au tour du joueur suivant
+    resetCanvas();
+}
+
+// Retourne le numéro choisi aléatoirement entre 1 et la valeur maximale indiquée en paramètre
+function random(number) {
+    return Math.floor((Math.random() * number) + 1);
+}
+
+// Supprime les espaces blancs uniquement si le paramètre est une chaine
+function trimValue(str) {
+    let newStr;
+    if(typeof str === "string"){
+        newStr = $.trim(str);
+    }
+    return newStr;
+}
+
 // Génère un canvas (pour le dé) suivant la valeur du paramètre
 function callCanvasFunction(number) {
     // Convertit la valeur passée en paramètre en valeur entière
     number = parseInt(number);
-    
+    // Boucle pour générer le canvas
     switch (number) {
         case 1:
             un();
