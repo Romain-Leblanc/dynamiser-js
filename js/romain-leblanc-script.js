@@ -25,8 +25,8 @@ function init() {
     pointRouge(1);
     pointRouge(2);
     // Réinitialise l'affichage du point rouge du joueur actuel
-    if(!$(`#canvas-tour-joueur-${numeroJoueurActuel}`).hasClass('cacher')) {
-        $(`#canvas-tour-joueur-${numeroJoueurActuel}`).addClass('cacher');
+    if(!$(`#canvas-tour-joueur-${numeroJoueurActuel}`).hasClass('invisible')) {
+        $(`#canvas-tour-joueur-${numeroJoueurActuel}`).addClass('invisible');
     }
     // Définit le joueur qui commence
     numeroJoueurActuel = 1;
@@ -38,7 +38,7 @@ function nouvellePartie() {
     // Supprime la classe qui grise l'affichage de tous les éléments du DOM
     $(".griser").removeClass("griser");
     // Récupère et affiche le tour du joueur qui commence
-    canvasTourJoueurUn.removeClass("cacher");
+    canvasTourJoueurUn.removeClass("invisible");
     // Ajoute l'évènement onclick sur le bouton lancer
     divBoutonLancer.attr('onclick', 'lancer()');
 }
@@ -97,8 +97,8 @@ function nextPlayer() {
     // Si le joueur actuel est le joueur n° 1
     if(numeroJoueurActuel == 1) {
         // On cache l'image du point rouge du joueur n°1 étant donné qu'il vient de jouer puis l'affiche au joueur n°2
-        canvasTourJoueurUn.addClass("cacher");
-        canvasTourJoueurDeux.removeClass("cacher");
+        canvasTourJoueurUn.addClass("invisible");
+        canvasTourJoueurDeux.removeClass("invisible");
         // On réinitialise le score "ROUND" du joueur n°1 à zéro.
         scoreActuelJoueurEncours.text(0);
         // Définit le tour actuel au joueur suivant
@@ -106,8 +106,8 @@ function nextPlayer() {
     }
     else {
         // On cache l'image du point rouge du joueur n°2 étant donné qu'il vient de jouer puis l'affiche au joueur n°1
-        canvasTourJoueurUn.removeClass("cacher");
-        canvasTourJoueurDeux.addClass("cacher");
+        canvasTourJoueurUn.removeClass("invisible");
+        canvasTourJoueurDeux.addClass("invisible");
         // On réinitialise le score "ROUND" du joueur n°2 à zéro.
         scoreActuelJoueurEncours.text(0);
         // Définit le tour actuel au joueur suivant

@@ -1,5 +1,5 @@
-html {
-    background-color: grey;
+body {
+    background-color: grey !important;
 }
 .cadre {
     height: 100%;
@@ -10,13 +10,14 @@ html {
     align-items: center;
     gap: 10px;
 }
-h1, h2, h3, h4, h5, button {
-    font-family: "Arial";
+h1, h2, h3, h4, h5, h6, button {
+    font-family: "Arial" !important;
     text-transform: uppercase;
+    margin: 15px 0 15px 0;
+    font-weight: bold;
 }
 .interface {
     background-color: lightblue;
-    margin: 10px 0px;
 }
 .interface .bouton-partie {
     display: flex;
@@ -37,14 +38,13 @@ h1, h2, h3, h4, h5, button {
     padding: 3px;
     margin-right: 5px;
 }
-.grid > * {
+.grid-padding > * {
     padding: 10px 0;
 }
-.grille {
+.grid {
     display: grid;
-    align-items: center;
-    justify-items: center;
-    grid-template-columns: 30% 5% auto 5% 30%;
+    justify-items: center !important;
+    grid-template-columns: 30% 5% auto 5% 30% !important;
 }
 .score-actuel {
     background-color: lightcoral;
@@ -53,29 +53,28 @@ h1, h2, h3, h4, h5, button {
     justify-content: center;
     align-items: center;
 }
-.score-actuel h5 {
+.score-actuel h6 {
     margin: 15px 0 20px 0;
+    font-size: 14px !important;
 }
-.score-actuel h3 {
+.score-actuel h4 {
     margin: 0 0 10px 0;
     color: white;
     font-size: xx-large;
     word-break: break-all;
 }
 .boutons-joueurs {
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
+    cursor: pointer !important;
 }
 @media screen and (min-width: 1200px) {
     .interface {
         width: 75%;
     }
-    .grille h2 {
-        font-size: 21pt;
+    .grid h3 {
+        font-size: 21pt !important;
     }
-    .grille h1 {
-        font-size: 30pt;
+    .grid h2 {
+        font-size: 30pt !important;
     }
     #canvas-de {
         width: 102px;
@@ -83,16 +82,17 @@ h1, h2, h3, h4, h5, button {
     }
     .score-actuel {
         padding: 0px 30px;
+        margin-bottom: 10px;
     }
 }
 @media screen and (min-width: 850px) and (max-width: 1199px) {
     .interface {
         width: 95%;
     }
-    .grille h2 {
+    .grid h3 {
         font-size: 18pt;
     }
-    .grille h1 {
+    .grid h2 {
         font-size: 27pt;
     }
     #canvas-de {
@@ -103,24 +103,24 @@ h1, h2, h3, h4, h5, button {
         padding: 0px 25px;
         margin-bottom: 10px;
     }
-    .score-actuel h5, .boutons-joueurs {
-        font-size: 9pt;
+    .score-actuel h6, .boutons-joueurs h6 {
+        font-size: 9pt !important;
     }
-    .score-actuel h3 {
-        font-size: 14pt;
+    .score-actuel h4 {
+        font-size: 14pt !important;
     }
 }
 @media screen and (min-width: 600px) and (max-width: 849px) {
     .interface {
-        width: 100%;
+        width: 97%;
     }
     .interface button {
         font: bold 14px 'Arial'
     }
-    .grille h2 {
+    .grid h3 {
         font-size: 15pt;
     }
-    .grille h1 {
+    .grid h2 {
         font-size: 27pt;
     }
     #canvas-de {
@@ -131,24 +131,24 @@ h1, h2, h3, h4, h5, button {
         padding: 0px 20px;
         margin-bottom: 10px;
     }
-    .score-actuel h5, .boutons-joueurs {
-        font-size: 10pt;
+    .score-actuel h6, .boutons-joueurs h6 {
+        font-size: 9pt !important;
     }
-    .score-actuel h3 {
+    .score-actuel h4 {
         font-size: 15pt;
     }
 }
 @media screen and (max-width: 599px) {
     .interface {
-        width: 100%;
+        width: 97%;
     }
     .interface button {
         font: bold 12px 'Arial'
     }
-    .grille h2 {
+    .grid h3 {
         font-size: 13pt;
     }
-    .grille h1 {
+    .grid h2 {
         font-size: 25pt;
     }
     #canvas-de {
@@ -159,11 +159,11 @@ h1, h2, h3, h4, h5, button {
         padding: 0px 20px;
         margin-bottom: 10px;
     }
-    .score-actuel h5, .boutons-joueurs {
-        font-size: 7pt;
+    .score-actuel h6, .boutons-joueurs h6 {
+        font-size: 7pt !important;
     }
-    .score-actuel h3 {
-        font-size: 12pt;
+    .score-actuel h4 {
+        font-size: 12pt !important;
     }
 }
 #canvas-de, #score-de {
